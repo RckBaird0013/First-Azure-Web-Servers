@@ -2,18 +2,22 @@
 
 The files in this repository were used to configure the network depicted below.
 
-Initial Server Setup [Images/Initial-Server-Setup.drawio.png]
-First Azure Web Server [Images/First-Azure-Web-Server.drawio.png]
+Initial Server Setup https://github.com/RckBaird0013/First-Azure-Web-Servers/blob/2cefbeac500c21dbec2ba62b0e5cfee4119b1a7c/Diagrams/Initial-Server-Setup.drawio.png
+![Images/Initial-Server-Setup.drawio.png](Diagrams/Initial-Server-Setup.drawio.png)
+
+First Azure Web Server https://github.com/RckBaird0013/First-Azure-Web-Servers/blob/2cefbeac500c21dbec2ba62b0e5cfee4119b1a7c/Diagrams/First-Azure-Web-Server.drawio.png
+![Images/First-Azure-Web-Server.drawio.png](Diagrams/First-Azure-Web-Server.drawio.png)
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the Ansible files may be used to install only certain pieces of it, such as Filebeat.
 
 [Ansible Directory]
-Pentest.yml
-Install-Elk.yml
-Filebeat-config.yml
-Filebeat-playbook.yml
-Metricbeat-config.yml
-Metricbeat-playbook.yml
+
+- Pentest.yml
+- Install-Elk.yml
+- Filebeat-config.yml
+- Filebeat-playbook.yml
+- Metricbeat-config.yml
+- Metricbeat-playbook.yml
 
 This document contains the following details:
 - Description of the Topology
@@ -65,7 +69,7 @@ The IP of the Elk-Stack VM is 10.1.0.4
 A summary of the access policies in place can be found in the table below.
 
 | Name         | Publicly Accessible | Allowed IP Addresses  |
-|-----------=--|---------------------|-----------------------|
+|--------------|---------------------|-----------------------|
 | Jump Box     | Yes                 | Admin Public IP       |
 | Web-1        | No                  | 10.0.0.4              |
 | Web-2        | No                  | 10.0.0.4              |
@@ -78,30 +82,34 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
 through the ansible container. This low maintanence allows an administator more time to scan and monitor the system versus manually configuring the Elk Machine and Web servers. It can also save on cost of the server operation.
 
 [Install-Elk]
-Initial section specifies ELK host and authorized remote users
-Tasks 1-3 - Installs the docker.io, python3 package management system and Docker onto the VM
-Tasks 4-6 - Specifies and increases the memory of the Virtual Machine and allows the changes even upon restart 
-Task  7   - Downloads the specific Docker container to be installed and begins launch. This also specifies the ports ELK will run on.  
-Task  8   - Allows Docker to be enable any time the machine is booted up. 
+
+- Initial section specifies ELK host and authorized remote users
+- Tasks 1-3 - Installs the docker.io, python3 package management system and Docker onto the VM
+- Tasks 4-6 - Specifies and increases the memory of the Virtual Machine and allows the changes even upon restart 
+- Task  7   - Downloads the specific Docker container to be installed and begins launch. This also specifies the ports ELK will run on.  
+- Task  8   - Allows Docker to be enable any time the machine is booted up. 
 
 [filebeat-playbook]
-Intial section specifies webserver hosts and authorized remote users
-Tasks 1-3 - Specifiy what file is to be downloaded, to depackage the file once downloaded and where to store the file
-Task  4    - Enable Filebeat on the VM
-Tasks 5-6  - Allows the setup and startup of the Filebeat service
-Task  7    - Enable Filebeat service on Boot
+
+- Intial section specifies webserver hosts and authorized remote users
+- Tasks 1-3 - Specifiy what file is to be downloaded, to depackage the file once downloaded and where to store the file
+- Task  4    - Enable Filebeat on the VM
+- Tasks 5-6  - Allows the setup and startup of the Filebeat service
+- Task  7    - Enable Filebeat service on Boot
 
 [metricbeat-playbook]
-Intial section specifies webserver hosts and authorized remote users
-Tasks 1-3 - Specifiy what file is to be downloaded, to depackage the file once downloaded and where to store the file
-Task  4    - Enable Metricbeat on the VM
-Tasks 5-6  - Allows the setup and startup of the Metricbeat service
-Task  7    - Enable Metricbeat service on boot
+
+- Intial section specifies webserver hosts and authorized remote users
+- Tasks 1-3 - Specifiy what file is to be downloaded, to depackage the file once downloaded and where to store the file
+- Task  4    - Enable Metricbeat on the VM
+- Tasks 5-6  - Allows the setup and startup of the Metricbeat service
+- Task  7    - Enable Metricbeat service on boot
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
-[Images/Elk-Installation-Verification.png]
 
-[Image]
+Elk Install Verification https://github.com/RckBaird0013/First-Azure-Web-Servers/blob/2cefbeac500c21dbec2ba62b0e5cfee4119b1a7c/Images/Elk-Install-Verification.png
+![Images/Elk-Install-Verification.png](Images/Elk-Install-Verification.png)
+
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
@@ -139,7 +147,8 @@ Host file in the ansible directory must be updated to [webservers] 10.0.0.5 and 
 Navigate to http://<public ip>:5601/kibana/app to verify Elk Server is running.
 
 The following commands allow a user to update and push files to the specified GitHub. 
-git add
-git config --global user name
-git commit -m "First commit"
-git push 
+
+- git add
+- git config --global user name (if needed)
+- git commit -m "First commit"
+- git push 
